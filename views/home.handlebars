@@ -1,6 +1,6 @@
-<div>
+<div >
 {{#each allPost}}
-    <h3>{{title}} Posted by {{user.username}} on {{date_created}}</h3>
+   <a href="/post-detail/{{id}}"> <h3>{{title}} </h3> </a>  <p>Posted by {{user.username}} on {{date_created}}</p>
     <p>{{content}}</p>
     <hr>
 {{/each}}

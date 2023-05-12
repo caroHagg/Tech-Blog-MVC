@@ -1,6 +1,36 @@
 <div>
-    <p>Title</p>
+    <p>{{title}} </p>
      <input type="text" id="title">
-     <p>Content</p>
+     <p>{{content}}</p>
      <input type="text" id="content">
+
+     {{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea class="ml-5" name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+  </div>
+  
+</form>
+{{/if}}
+<div>
+  {{#each allComments}}
+  <section>
+    <div>
+      {{description}}
+    </div>
+    <div>
+      {{user.username}} on {{date_created}}
+    </div>
+    
+  </section>
+  {{/each}}
+</div>
+
+{{#if loggedIn}}
+<script src="/javascript/addcommen.js"></script>
+{{/if}}
 </div>
