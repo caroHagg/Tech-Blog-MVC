@@ -14,7 +14,7 @@ loginForm.addEventListener("submit",e=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/"
+           location.href = "/home"
         } else {
             alert("trumpet sound")
         }
@@ -30,7 +30,6 @@ signupForm.addEventListener("submit",e=>{
         username:document.querySelector("#signup-username").value,
         password:document.querySelector("#signup-password").value,
     }
-    console.log(userObj)
     fetch("/api/users",{
         method:"POST",
         body:JSON.stringify(userObj),

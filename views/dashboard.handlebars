@@ -1,7 +1,14 @@
  <div>
+     <h1>The Dashboard</h1>
+ </div>
+ <div>
 {{#each allPost}}
-    <h3>{{title}} {{date_created}}</h3>
+<div>
+    <a><p>{{title}}</p></a>
+    <p> {{date_created}}</p>
     <hr>
+</div>
+    
 {{/each}}
- <button id="newPost">+ New Post</button>
+ <a href="/new-post" >+ New Post</a>
 </div>

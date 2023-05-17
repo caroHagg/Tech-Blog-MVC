@@ -8,25 +8,25 @@ router.get("/",(req,res)=>{
     }).then(postData=>{
         const hbsData = postData.map(post=>post.get({plain:true}));
         res.render("home",{
-            allPosts:hbsData
+            allPosts:hbsData,
+            logged_in: req.session.logged_in
         })
     })
 })
 
-router.get("/project/:id",(req,res)=>{
+router.get("/post/:id",(req,res)=>{
     Post.findByPk(req.params.id,{
         include:[User]
     }).then(projData=>{
         const hbsData = projData.get({plain:true});
         hbsData.logged_id=req.session.logged_id
-        console.log(hbsData);
-        res.render("singleProject",hbsData)
+        res.render("post-detail",hbsData)
     })
 })
 
 router.get("/login",(req,res)=>{
     if(req.session.logged_in){
-        return res.redirect("/login")
+        return res.redirect("/dashboard")
     }
     res.render("login",{
         logged_in:req.session.logged_in
@@ -34,21 +34,31 @@ router.get("/login",(req,res)=>{
 })
 
 router.get("/dashboard",(req,res)=>{
+
+    res.render("dashboard")
     if(!req.session.logged_in){
         return res.redirect("/login")
     } else {
         Post.findAll({
             where: {user_id: req.session.user_id}
         }).then(postData=>{
-            console.log(postData)
+           
             if(!postData){
                 res.render("dashboard")
             }
             const hbsData = postData.map(post=> post.get({plain:true}))
             hbsData.logged_in=req.session.logged_in;
+            console.log(hbsData)
             res.render("dashboard",hbsData)
         })
     }
+})
+router.get("/new-post",(req,res) =>{
+    if(req.session.logged_in){
+        return res.redirect("/login")
+    }
+    res.render("new-post")
+
 })
 
 module.exports = router;

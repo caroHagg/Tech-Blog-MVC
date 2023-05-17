@@ -3,19 +3,6 @@
      <input type="text" id="title">
      <p>{{content}}</p>
      <input type="text" id="content">
-
-     {{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea class="ml-5" name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
-  </div>
-  
-</form>
-{{/if}}
 <div>
   {{#each allComments}}
   <section>
@@ -29,8 +16,20 @@
   </section>
   {{/each}}
 </div>
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea class="ml-5" name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+  </div>
+  
+</form>
+{{/if}}
 
 {{#if loggedIn}}
-<script src="/javascript/addcommen.js"></script>
+<script src="/javascript/add-comment.js"></script>
 {{/if}}
 </div>
