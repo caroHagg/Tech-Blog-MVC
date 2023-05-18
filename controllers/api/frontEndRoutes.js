@@ -58,8 +58,19 @@ router.get("/dashboard",(req,res)=>{
         })
     }
 });
-router.get("/update-post",(req,res)=>{
-    res.render("update-post")
+router.get("/update-post/:id",(req,res)=>{
+    if(!req.session.logged_in){
+        return res.redirect("/login")
+    } else {
+        Post.findByPk(req.params.id)
+        .then(projData=>{
+            const hbsData = projData.get({plain:true});
+            hbsData.logged_in=req.session.logged_in
+            res.render("update-post",{
+                allPost:hbsData,
+            })
+        })
+    }
 })
 router.get("/new-post",(req,res) =>{
     res.render("new-post");
