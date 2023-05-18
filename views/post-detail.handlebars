@@ -1,35 +1,30 @@
-<div>
-    <p>{{title}} </p>
-     <input type="text" id="title">
-     <p>{{content}}</p>
-     <input type="text" id="content">
-<div>
+<div class="ml-2">
+    <p> {{allPost.title}} </p> <p>{{allPost.content}}</p>
+</div>  
+<div class="ml-2">
   {{#each allComments}}
   <section>
     <div>
-      {{description}}
+      <p>{{description}}</p>
     </div>
     <div>
-      {{user.username}} on {{date_created}}
+      <p>-{{user.username}} on {{format_date date_created}}</p> 
     </div>
     
   </section>
   {{/each}}
 </div>
-{{#if loggedIn}}
-<form class="comment-form">
+{{#if logged_in}}
+<form class="class=ml-2">
   <div>
-    <textarea class="ml-5" name="comment-body"></textarea>
+    <textarea class="ml-5" id="comment-txtarea" name="comment-body"></textarea>
   </div>
 
   <div>
-    <button class="button is-warning ml-5 mb-5" type="submit">add comment</button>
+    <button class="ml-5 mb-5" id="add-comment" data-post-id="{{allPost.id}}" type="submit">add comment</button>
   </div>
   
 </form>
-{{/if}}
-
-{{#if loggedIn}}
-<script src="/javascript/add-comment.js"></script>
+<script src="/js/add-comment.js"></script>
 {{/if}}
 </div>

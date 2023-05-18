@@ -2,17 +2,18 @@
     <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card">
             <div class="card-header">
-                 Create New Post
+                 Update Post
              </div>
         <div class="card-body">
             <p>Title</p>
-            <textarea id="tittle-post"></textarea>
+            <textarea id="tittle-post">{{title}}</textarea>
              <p>Content</p>
-            <textarea id="content-post"></textarea>
+            <textarea id="content-post">{{content}}</textarea>
         <div class="d-grid gap-2">
-            <button>Update Post</button>
-            <button>Delete Post</button>
+            <button id="update-btn" data-post-id="{{id}}">Update Post</button>
+            <button id="delete-btn" data-post-id="{{id}}">Delete Post</button>
         </div>
         </div>
     </div>
+    <script src="/js/delete-update-post.js"></script>
 

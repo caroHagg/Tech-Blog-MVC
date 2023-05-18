@@ -3,7 +3,7 @@ document.querySelector("#new-post-btn").addEventListener("click", e=>{
     e.preventDefault();
     const postObj = {
         title : document.querySelector("#tittle-post").value,
-        content:document.querySelector("#tittle-post").value
+        content:document.querySelector("#content-post").value
     }
 
     fetch("/api/posts",{
