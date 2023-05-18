@@ -20,10 +20,9 @@ router.get("/post/:id",(req,res)=>{
         include:[{model:Comment,include:[User]}],
     }).then(projData=>{
         const hbsData = projData.get({plain:true});
-        hbsData.logged_in=req.session.logged_in
-        console.log(hbsData.comments)
         res.render("post-detail",{
             allPost:hbsData,
+            logged_in: req.session.logged_in,
             allComments:hbsData.comments
         })
     })
@@ -46,7 +45,6 @@ router.get("/dashboard",(req,res)=>{
         Post.findAll({
             where: {user_id: req.session.user_id}
         }).then(postData=>{
-           console.log(postData)
             if(!postData){
                 res.render("dashboard")
             }
@@ -64,10 +62,13 @@ router.get("/update-post/:id",(req,res)=>{
     } else {
         Post.findByPk(req.params.id)
         .then(projData=>{
+            
             const hbsData = projData.get({plain:true});
-            hbsData.logged_in=req.session.logged_in
+            console.log("======================")
+            console.log(hbsData)
             res.render("update-post",{
                 allPost:hbsData,
+                logged_in: req.session.logged_in
             })
         })
     }

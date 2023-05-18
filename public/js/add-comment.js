@@ -3,7 +3,6 @@ const addBtn = document.querySelector("#add-comment");
 addBtn.addEventListener("click",e=>{
     e.preventDefault();
     const postId = addBtn.getAttribute("data-post-id")
-    console.log("++++++++++++++"+postId)
     const newComment = {
         description: document.querySelector("#comment-txtarea").value,
         post_id:postId,
