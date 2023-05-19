@@ -16,7 +16,7 @@ loginForm.addEventListener("submit",e=>{
         if(res.ok){
            location.href = "/"
         } else {
-            alert("trumpet sound")
+            alert("Incorrect username or password")
         }
     })
 })
@@ -40,7 +40,7 @@ signupForm.addEventListener("submit",e=>{
         if(res.ok){
            location.href = "/"
         } else {
-            alert("trumpet sound")
+            alert("Incorrect username or password")
         }
     })
 })
