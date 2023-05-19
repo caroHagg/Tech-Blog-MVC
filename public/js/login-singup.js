@@ -19,7 +19,7 @@ loginForm.addEventListener("submit",e=>{
             alert("Incorrect username or password")
         }
     })
-})
+});
 //signup form
 const signupForm = document.querySelector("#signup-form");
 
@@ -43,4 +43,4 @@ signupForm.addEventListener("submit",e=>{
             alert("Incorrect username or password")
         }
     })
-})
+});
