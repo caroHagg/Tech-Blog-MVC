@@ -1,11 +1,20 @@
- <div>
- <h1>The Tech Blog</h1>
+ <div class="bg-primary-subtle text-primary-emphasis">
+  <div>
+    <h1> <span class="badge bg-secondary mb-3 ms-4">The Tech Blog </span></h1>
+  </div>  
+    
  </div>
  
 <div>
 {{#each allPost}}
-   <a href="/post/{{id}}"> <h3>{{title}} </h3> </a>  <p>Posted by {{user.username}} on {{format_date date_created}}</p>
+<div class="card ms-4 mb-3 card-size">
+  <div class="card-header card-title gap-3">
+   <a class="link-offset-2 link-underline link-underline-opacity-0 text-primary-emphasis" href="/post/{{id}}"> <h3>{{title}} </h3> </a>  <p>Posted by {{user.username}} on {{format_date date_created}}</p>
+  </div>
+  <div class="card-body">
     <p>{{content}}</p>
+  </div>    
+</div>
     <hr>
 {{/each}}
 </div>

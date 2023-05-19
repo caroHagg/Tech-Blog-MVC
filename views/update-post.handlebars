@@ -1,21 +1,21 @@
- <div>
-     <h1>The Dashboard</h1>
+ <div class="bg-primary-subtle text-primary-emphasis">
+    <h1> <span class="badge bg-secondary mb-3 ms-4">The Dashboard</span></h1>
  </div>
  
  <div class="row justify-content-center mt-5">
     <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
+        <div class="card card-size">
             <div class="card-header">
                  Update Post
              </div>
         <div class="card-body">
             <p>Title</p>
-            <textarea id="tittle-post">{{allPost.title}}</textarea>
+            <textarea class="form-control" id="tittle-post">{{allPost.title}}</textarea>
              <p>Content</p>
-            <textarea id="content-post">{{allPost.content}}</textarea>
-        <div class="d-grid gap-2">
-            <button id="update-btn" data-post-id="{{allPost.id}}">Update Post</button>
-            <button id="delete-btn" data-post-id="{{allPost.id}}">Delete Post</button>
+            <textarea class="form-control" id="content-post">{{allPost.content}}</textarea>
+        <div class="d-grid gap-2 mt-3">
+            <button  class="btn btn-secondary" id="update-btn" data-post-id="{{allPost.id}}">Update Post</button>
+            <button  class="btn btn-secondary" id="delete-btn" data-post-id="{{allPost.id}}">Delete Post</button>
         </div>
         </div>
     </div>

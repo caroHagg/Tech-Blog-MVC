@@ -1,14 +1,18 @@
- <div>
-     <h1>The Dashboard</h1>
+ <div class="bg-primary-subtle text-primary-emphasis">
+     <h1> <span class="badge bg-secondary mb-3 ms-4">The Dashboard</span></h1>
  </div>
  <div>
 {{#each allPost}}
-<div>
-    <a href="/update-post/{{id}}"><p>{{title}}</p></a>
-    <p> {{format_date date_created}}</p>
-    <hr>
+<div class="card ms-4 mb-3 card-size">
+  <div class="card-header card-title gap-3">
+    <a class="link-offset-2 link-underline link-underline-opacity-0 text-primary-emphasis" href="/update-post/{{id}}"><h4>{{title}}</h4></a>
+    <p class="text-end"> {{format_date date_created}}</p>
+  </div>  
 </div>
     
 {{/each}}
- <a href="/new-post" >+ New Post</a>
+ <div class="container">
+    <a class="link-offset-2 link-underline link-underline-opacity-0 text-primary-emphasis text-center" href="/new-post" >+ New Post</a>
+ </div>
+ 
 </div>

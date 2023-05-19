@@ -17,7 +17,7 @@ router.get("/",(req,res)=>{
 
 router.get("/post/:id",(req,res)=>{
     Post.findByPk(req.params.id,{
-        include:[{model:Comment,include:[User]}],
+        include:[{model:Comment,include:[User]},{model:User}],
     }).then(projData=>{
         const hbsData = projData.get({plain:true});
         res.render("post-detail",{
